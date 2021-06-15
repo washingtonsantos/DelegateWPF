@@ -8,5 +8,10 @@
         Title="MainWindow" Height="450" Width="800">
     <Grid>
         <Button Width="100" Height="50" Click="Button_Click">Clique</Button>
+        <ProgressBar Name="MyProgress" Minimum="0" Maximum="100" HorizontalAlignment="Center" Height="33" Margin="0,286,0,0" VerticalAlignment="Top" Width="780"/>
+        <Label Content="Total Clientes:" HorizontalAlignment="Left" Margin="137,361,0,0" VerticalAlignment="Top"/>
+        <Label Content="" Name="ClientesQuantidade" HorizontalAlignment="Left" Margin="225,361,0,0" VerticalAlignment="Top"/>
+        <Label Content="Clientes Processados:" HorizontalAlignment="Left" Margin="281,361,0,0" VerticalAlignment="Top"/>
+        <Label Content="" Name="ClientesProcessadosLabel" HorizontalAlignment="Left" Margin="412,361,0,0" VerticalAlignment="Top"/>
     </Grid>
-</Window>
+</Window> 

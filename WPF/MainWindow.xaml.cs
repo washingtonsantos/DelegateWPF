@@ -1,5 +1,7 @@
 ﻿using Domain;
+using System;
 using System.Windows;
+using System.Windows.Threading;
 
 namespace WPF
 {
@@ -13,18 +15,21 @@ namespace WPF
         public MainWindow()
         {
             InitializeComponent();
+            ClientesQuantidade.Content = 100;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var servico = new ServicoDominio();
+            var servico = new ServicoDominio(100);
             servico.add += MainWindow_add;
             servico.ServicoTrabalhando();
         }
 
-        private void MainWindow_add(int num)
+        private void MainWindow_add(int num, int qtdTotal)
         {
-            MessageBox.Show("Olha o número ai " + num);
+            MyProgress.Dispatcher.Invoke(() => MyProgress.Value = (num * qtdTotal) / 100, DispatcherPriority.Background);
+            ClientesProcessadosLabel.Content = num + 1;
+            System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
         }
     }
 }
